@@ -1,0 +1,8 @@
+### Standard shipping quote (result in paise)
+GET http://127.0.0.1:8000/shipping/quote?distance_km=10&weight_grams=1500
+
+### Priority shipping quote
+GET http://127.0.0.1:8000/shipping/quote?distance_km=10&weight_grams=1500&priority=true
+
+### Validation: negative distance
+GET http://127.0.0.1:8000/shipping/quote?distance_km=-4&weight_grams=1500

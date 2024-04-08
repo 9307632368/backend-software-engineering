@@ -1,0 +1,17 @@
+### Open a ticket
+POST http://127.0.0.1:8000/tickets
+Content-Type: application/json
+
+{"subject":"Unable to reset password","priority":"high"}
+
+### Read tickets
+GET http://127.0.0.1:8000/tickets?limit=10
+
+### Read the first ticket
+GET http://127.0.0.1:8000/tickets/1
+
+### Close it
+PATCH http://127.0.0.1:8000/tickets/1/close
+
+### Delete it
+DELETE http://127.0.0.1:8000/tickets/1
