@@ -1,0 +1,11 @@
+### Add a book
+POST http://localhost:8000/books
+Content-Type: application/json
+
+{"title":"Backend Basics","author":"Student"}
+
+### Fetch the page
+GET http://localhost:8000/books?skip=0&limit=10
+
+### Check the OpenAPI schema
+GET http://localhost:8000/openapi.json

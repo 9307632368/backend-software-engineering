@@ -1,0 +1,14 @@
+### Replace placeholders with locally configured demo keys; never commit real keys.
+### Read list (reader or admin key)
+GET http://127.0.0.1:8000/memos
+X-API-Key: REPLACE_WITH_READ_KEY
+
+### Create memo (admin key only)
+POST http://127.0.0.1:8000/memos
+Content-Type: application/json
+X-API-Key: REPLACE_WITH_ADMIN_KEY
+
+{"text":"Write tests before changing the endpoint"}
+
+### Missing key -> 401
+GET http://127.0.0.1:8000/memos

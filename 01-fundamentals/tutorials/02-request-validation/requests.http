@@ -1,0 +1,17 @@
+### Valid body
+POST http://127.0.0.1:8000/enrollments/preview
+Content-Type: application/json
+
+{"student_name":"  Ananya  ","course_code":"cse401","semester":4,"mode":"online","credits":4}
+
+### Wrong semester -> 422
+POST http://127.0.0.1:8000/enrollments/preview
+Content-Type: application/json
+
+{"student_name":"Ananya","course_code":"cse401","semester":12,"mode":"online","credits":4}
+
+### Extra field -> 422
+POST http://127.0.0.1:8000/enrollments/preview
+Content-Type: application/json
+
+{"student_name":"Ananya","course_code":"cse401","semester":4,"mode":"online","credits":4,"admin":true}
