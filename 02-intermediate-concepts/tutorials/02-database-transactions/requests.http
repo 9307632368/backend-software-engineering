@@ -1,0 +1,15 @@
+@base = http://localhost:8000
+POST {{base}}/wallets
+Content-Type: application/json
+
+{"owner":"Alice","initial_paise":2500}
+###
+POST {{base}}/wallets
+Content-Type: application/json
+
+{"owner":"Bob","initial_paise":100}
+###
+POST {{base}}/transfers
+Content-Type: application/json
+
+{"from_id":1,"to_id":2,"amount_paise":400}

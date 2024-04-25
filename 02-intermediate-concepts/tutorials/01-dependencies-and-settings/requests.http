@@ -1,0 +1,8 @@
+@base = http://localhost:8000
+GET {{base}}/health
+###
+POST {{base}}/quotes
+x-api-key: my-local-key
+Content-Type: application/json
+
+{"description":"Notebook","unit_price_paise":1500,"units":3}

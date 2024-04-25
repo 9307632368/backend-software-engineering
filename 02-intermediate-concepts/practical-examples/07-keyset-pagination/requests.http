@@ -1,0 +1,7 @@
+@base = http://localhost:8000
+POST {{base}}/products
+Content-Type: application/json
+
+{"name":"Monitor Stand","category":"desk","price_paise":249900}
+###
+GET {{base}}/products?limit=2&after=0

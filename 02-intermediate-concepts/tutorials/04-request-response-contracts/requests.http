@@ -1,0 +1,4 @@
+POST http://localhost:8000/v1/shipments
+Content-Type: application/json
+
+{"customer_name":"Ada Lovelace","address":{"city":"Pune","postal_code":"411001"},"boxes":2,"priority":"urgent","internal_note":"Call me"}

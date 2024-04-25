@@ -1,0 +1,2 @@
+# Run python send_event.py to generate a valid HMAC signature.
+GET http://localhost:8000/docs

@@ -1,0 +1,4 @@
+POST http://localhost:8000/availability
+Content-Type: application/json
+
+{"sku":"BOOK-10","timeout_ms":200}

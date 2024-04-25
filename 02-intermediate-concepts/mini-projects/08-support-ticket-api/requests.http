@@ -1,0 +1,22 @@
+@base = http://localhost:8000
+POST {{base}}/tickets
+Content-Type: application/json
+
+{"customer_email":"student@example.com","subject":"Login blocked","description":"When I log in I am redirected to an error page"}
+###
+PATCH {{base}}/tickets/1/assign
+X-Actor-Role: agent
+X-Actor: helpdesk-01
+Content-Type: application/json
+
+{"assignee":"Riya"}
+###
+PATCH {{base}}/tickets/1/status
+X-Actor-Role: agent
+X-Actor: helpdesk-01
+Content-Type: application/json
+
+{"status":"in_progress"}
+###
+GET {{base}}/tickets/1/history
+X-Actor-Role: agent

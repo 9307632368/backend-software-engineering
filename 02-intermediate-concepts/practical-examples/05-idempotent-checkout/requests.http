@@ -1,0 +1,5 @@
+POST http://localhost:8000/checkouts
+Idempotency-Key: cart-001
+Content-Type: application/json
+
+{"customer_id":"customer-12","item_sku":"PEN-8","quantity":3,"unit_price_paise":1500}

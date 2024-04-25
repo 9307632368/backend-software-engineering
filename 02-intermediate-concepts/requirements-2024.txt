@@ -1,0 +1,7 @@
+# Package versions available by the end of 2024. Recommended: Python 3.11.
+fastapi==0.115.6
+uvicorn==0.32.1
+pydantic==2.10.4
+SQLAlchemy==2.0.36
+httpx==0.28.1
+pytest==8.3.4

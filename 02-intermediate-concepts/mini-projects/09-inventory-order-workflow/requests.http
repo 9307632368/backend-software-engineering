@@ -1,0 +1,14 @@
+@base = http://localhost:8000
+POST {{base}}/products
+Content-Type: application/json
+
+{"sku":"MED-101","name":"Demo medical product","stock":10,"price_paise":1999}
+###
+POST {{base}}/orders
+Content-Type: application/json
+
+{"sku":"MED-101","quantity":3}
+###
+GET {{base}}/products/MED-101
+###
+POST {{base}}/orders/1/confirm
