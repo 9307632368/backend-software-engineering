@@ -1,7 +1,0 @@
-### File upload: use the Swagger UI for file selection
-### http://localhost:8000/docs
-### Download: replace the file ID after uploading
-GET http://localhost:8000/files/PASTE_FILE_ID
-
-### Delete
-DELETE http://localhost:8000/files/PASTE_FILE_ID
