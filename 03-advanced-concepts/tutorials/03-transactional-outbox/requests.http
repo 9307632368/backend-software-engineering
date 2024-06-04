@@ -1,0 +1,10 @@
+POST http://127.0.0.1:8000/orders
+Content-Type: application/json
+
+{"sku":"PEN", "quantity":2}
+
+###
+GET http://127.0.0.1:8000/events
+
+###
+POST http://127.0.0.1:8000/worker/dispatch

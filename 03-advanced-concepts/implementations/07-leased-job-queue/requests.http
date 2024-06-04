@@ -1,0 +1,13 @@
+POST http://127.0.0.1:8000/jobs
+Content-Type: application/json
+
+{"task":"generate-report", "data":"week-01"}
+
+###
+POST http://127.0.0.1:8000/worker/claim
+
+### copy ID and lease_token from claim response
+POST http://127.0.0.1:8000/worker/YOUR-JOB-ID/complete
+Content-Type: application/json
+
+{"lease_token":"YOUR-LEASE-TOKEN"}

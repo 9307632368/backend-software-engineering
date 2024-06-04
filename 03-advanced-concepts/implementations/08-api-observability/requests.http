@@ -1,0 +1,7 @@
+GET http://127.0.0.1:8000/health/live
+
+###
+GET http://127.0.0.1:8000/work/12
+
+###
+GET http://127.0.0.1:8000/metrics

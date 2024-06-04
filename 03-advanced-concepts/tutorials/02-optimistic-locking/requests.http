@@ -1,0 +1,7 @@
+GET http://127.0.0.1:8000/products/1
+
+###
+PATCH http://127.0.0.1:8000/products/1/stock
+Content-Type: application/json
+
+{"expected_version": 1, "delta": -2}

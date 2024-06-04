@@ -1,0 +1,7 @@
+POST http://127.0.0.1:8000/links
+Content-Type: application/json
+
+{"url":"https://example.com", "ttl_seconds":3600}
+
+### Replace the code from previous response
+GET http://127.0.0.1:8000/r/your-code
