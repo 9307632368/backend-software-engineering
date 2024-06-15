@@ -1,0 +1,22 @@
+### Health
+GET http://localhost:8000/health
+
+### Register customer
+POST http://localhost:8000/auth/register
+Content-Type: application/json
+
+{"email":"buyer@example.com","password":"password123"}
+
+### Login
+POST http://localhost:8000/auth/login
+Content-Type: application/json
+
+{"email":"buyer@example.com","password":"password123"}
+
+### Checkout (replace bearer token and product id)
+POST http://localhost:8000/orders
+Authorization: Bearer REPLACE_WITH_ACCESS_TOKEN
+Idempotency-Key: local-checkout-123
+Content-Type: application/json
+
+{"items":[{"product_id":1,"quantity":2}]}
