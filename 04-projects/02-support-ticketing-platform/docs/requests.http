@@ -1,0 +1,16 @@
+### Register
+POST http://localhost:8000/auth/register
+Content-Type: application/json
+
+{"email":"customer@example.com","password":"password123"}
+
+### Create ticket — replace token
+POST http://localhost:8000/tickets
+Authorization: Bearer REPLACE_WITH_TOKEN
+Content-Type: application/json
+
+{"subject":"Order not arriving","description":"Delivery tracking has not updated for three days","priority":"high"}
+
+### List my tickets
+GET http://localhost:8000/tickets
+Authorization: Bearer REPLACE_WITH_TOKEN
