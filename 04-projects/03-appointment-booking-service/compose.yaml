@@ -1,0 +1,11 @@
+services:
+  api:
+    build: .
+    ports: ["8000:8000"]
+    environment:
+      JWT_SECRET: "${JWT_SECRET:?Set JWT_SECRET in your shell or .env}"
+      DATABASE_URL: "sqlite:////data/app.db"
+    volumes:
+      - api-data:/data
+volumes:
+  api-data:

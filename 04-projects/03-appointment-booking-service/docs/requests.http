@@ -1,0 +1,24 @@
+### Services
+GET http://localhost:8000/services
+
+### Create service (admin bearer token required)
+POST http://localhost:8000/services
+Content-Type: application/json
+Authorization: Bearer REPLACE_WITH_ADMIN_TOKEN
+
+{"name":"Consultation", "description":"30 minute meeting"}
+
+### Create future slot (replace time with a future 30-minute UTC time)
+POST http://localhost:8000/services/1/slots
+Content-Type: application/json
+Authorization: Bearer REPLACE_WITH_ADMIN_TOKEN
+
+{"starts_at":"2030-01-01T10:00:00Z"}
+
+### Book slot (customer bearer token required)
+POST http://localhost:8000/bookings
+Authorization: Bearer REPLACE_WITH_CUSTOMER_TOKEN
+Idempotency-Key: booking-abc-12345
+Content-Type: application/json
+
+{"slot_id":1}
