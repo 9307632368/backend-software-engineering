@@ -1,0 +1,41 @@
+### Run each API separately with uvicorn. Default port 8000.
+### Payment simulation: first POST returns 201, repeat same request returns replayed=true
+POST http://127.0.0.1:8000/payments
+Content-Type: application/json
+Idempotency-Key: student-demo-001
+
+{"customer_id":"student-01","amount_paise":1499,"currency":"INR"}
+
+### Rate limiter (run sliding_window_rate_limit:app)
+GET http://127.0.0.1:8000/search?q=backend
+X-API-Key: practice-key
+
+### Stock API (run concurrent_stock_orders:app)
+POST http://127.0.0.1:8000/stock
+Content-Type: application/json
+
+{"sku":"BOOK-001","quantity":2}
+
+###
+POST http://127.0.0.1:8000/orders
+Content-Type: application/json
+
+{"sku":"BOOK-001","quantity":1}
+
+### Audit log API
+POST http://127.0.0.1:8000/events
+Content-Type: application/json
+
+{"actor":"user-1","event_type":"login","details":"session started"}
+
+###
+GET http://127.0.0.1:8000/events?page=1&size=10&event_type=login
+
+### Job queue API
+POST http://127.0.0.1:8000/jobs
+Content-Type: application/json
+
+{"task":"send_email","payload":{"to":"demo@example.test"}}
+
+### Trigger one job (local practice only)
+POST http://127.0.0.1:8000/worker/run-once
