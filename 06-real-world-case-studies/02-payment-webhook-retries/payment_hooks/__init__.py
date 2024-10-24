@@ -1,0 +1,1 @@
+"""Payment webhook case study; no real payment gateway is used."""
