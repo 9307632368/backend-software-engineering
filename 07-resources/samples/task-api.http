@@ -1,0 +1,31 @@
+@base = http://127.0.0.1:8000
+
+### Health
+GET {{base}}/health
+
+### Create task
+POST {{base}}/tasks
+Content-Type: application/json
+
+{
+  "title": "Write API tests",
+  "priority": 1
+}
+
+### List tasks
+GET {{base}}/tasks
+
+### Read created task (fresh server: ID 1)
+GET {{base}}/tasks/1
+
+### Complete task
+PATCH {{base}}/tasks/1
+
+### Invalid input (expect 422)
+POST {{base}}/tasks
+Content-Type: application/json
+
+{"title": "x", "priority": 999}
+
+### Remove task
+DELETE {{base}}/tasks/1

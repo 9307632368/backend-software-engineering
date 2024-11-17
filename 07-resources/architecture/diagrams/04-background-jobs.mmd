@@ -1,0 +1,10 @@
+flowchart LR
+    A[API] -->|Persist job| Q[(Durable queue)]
+    Q --> W[Worker]
+    W --> E[External service]
+    W -->|success| DONE[(Completed)]
+    W -->|transient failure| RETRY[Bounded backoff retry]
+    RETRY --> Q
+    W -->|retry budget exceeded| DLQ[(Dead letter queue)]
+    Q --> MON[Queue metrics]
+    DLQ --> MON

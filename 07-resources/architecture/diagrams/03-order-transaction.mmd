@@ -1,0 +1,21 @@
+sequenceDiagram
+    actor C as Client
+    participant A as Order API
+    participant DB as Transactional DB
+    C->>A: POST /orders with Idempotency-Key
+    A->>DB: BEGIN transaction
+    A->>DB: Check or insert unique idempotency key
+    alt key already committed
+        DB-->>A: Previous result
+        A-->>C: Original response
+    else first request
+        A->>DB: Conditional stock update
+        alt insufficient stock
+            A->>DB: ROLLBACK
+            A-->>C: 409 Out of stock
+        else stock available
+            A->>DB: Create order and outbox event
+            A->>DB: COMMIT
+            A-->>C: 201 Order created
+        end
+    end

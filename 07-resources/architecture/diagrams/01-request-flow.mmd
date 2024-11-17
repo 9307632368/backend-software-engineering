@@ -1,0 +1,8 @@
+flowchart LR
+    C[Client] --> R[FastAPI router]
+    R --> V[Pydantic validation]
+    V --> S[Business service]
+    S --> D[Database repository]
+    D --> DB[(Database)]
+    S --> O[Response model]
+    O --> C

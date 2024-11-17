@@ -1,0 +1,21 @@
+sequenceDiagram
+    actor U as User
+    participant A as API
+    participant T as Token verifier
+    participant DB as Database
+    U->>A: GET /orders/42 + Bearer token
+    A->>T: Verify signature and claims
+    alt token invalid or expired
+        T-->>A: Unauthenticated
+        A-->>U: 401
+    else verified
+        T-->>A: Principal ID
+        A->>DB: Load order and owner ID
+        alt order absent
+            A-->>U: 404
+        else caller cannot access order
+            A-->>U: 403 (or masked 404)
+        else authorized
+            A-->>U: 200 with order
+        end
+    end
